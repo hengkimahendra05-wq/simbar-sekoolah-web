@@ -77,7 +77,7 @@ async def get_status_checks():
 
 
 # --- Application routers (all under /api) ---
-app.include_router(auth.router)
+app.include_router(auth.router, prefix="/api")
 api_router.include_router(users.router)
 api_router.include_router(items.router)
 api_router.include_router(transactions.router)
