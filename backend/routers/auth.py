@@ -1,5 +1,5 @@
 from fastapi import APIRouter, Depends, HTTPException, status
-from .models.user import LoginRequest, UserResponse
+from ..models.user import LoginRequest, UserResponse
 
 router = APIRouter(tags=["authentication"])
 
