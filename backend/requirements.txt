@@ -33,3 +33,4 @@ xlrd
 fastapi
 uvicorn
 pydantic
+setuptools
