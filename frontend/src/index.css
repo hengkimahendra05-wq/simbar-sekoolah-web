@@ -1,0 +1,166 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+@import "@fontsource-variable/plus-jakarta-sans";
+@import "@fontsource-variable/dm-sans";
+@import "@fontsource/ibm-plex-mono";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+    --font-heading: 'Plus Jakarta Sans Variable', sans-serif;
+    --font-sans: 'DM Sans Variable', sans-serif;
+    --font-mono: 'IBM Plex Mono', monospace;
+    --color-sidebar-ring: var(--sidebar-ring);
+    --color-sidebar-border: var(--sidebar-border);
+    --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+    --color-sidebar-accent: var(--sidebar-accent);
+    --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+    --color-sidebar-primary: var(--sidebar-primary);
+    --color-sidebar-foreground: var(--sidebar-foreground);
+    --color-sidebar: var(--sidebar);
+    --color-chart-5: var(--chart-5);
+    --color-chart-4: var(--chart-4);
+    --color-chart-3: var(--chart-3);
+    --color-chart-2: var(--chart-2);
+    --color-chart-1: var(--chart-1);
+    --color-ring: var(--ring);
+    --color-input: var(--input);
+    --color-border: var(--border);
+    --color-destructive: var(--destructive);
+    --color-accent-foreground: var(--accent-foreground);
+    --color-accent: var(--accent);
+    --color-muted-foreground: var(--muted-foreground);
+    --color-muted: var(--muted);
+    --color-secondary-foreground: var(--secondary-foreground);
+    --color-secondary: var(--secondary);
+    --color-primary-foreground: var(--primary-foreground);
+    --color-primary: var(--primary);
+    --color-popover-foreground: var(--popover-foreground);
+    --color-popover: var(--popover);
+    --color-card-foreground: var(--card-foreground);
+    --color-card: var(--card);
+    --color-foreground: var(--foreground);
+    --color-background: var(--background);
+    --radius-sm: calc(var(--radius) * 0.6);
+    --radius-md: calc(var(--radius) * 0.8);
+    --radius-lg: var(--radius);
+    --radius-xl: calc(var(--radius) * 1.4);
+    --radius-2xl: calc(var(--radius) * 1.8);
+    --radius-3xl: calc(var(--radius) * 2.2);
+    --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+:root {
+    --background: #f8fafc;
+    --foreground: #0f172a;
+    --card: #ffffff;
+    --card-foreground: #0f172a;
+    --popover: #ffffff;
+    --popover-foreground: #0f172a;
+    --primary: #059669;
+    --primary-foreground: #ffffff;
+    --secondary: #ecfdf5;
+    --secondary-foreground: #065f46;
+    --muted: #f1f5f9;
+    --muted-foreground: #64748b;
+    --accent: #ecfdf5;
+    --accent-foreground: #065f46;
+    --destructive: #be123c;
+    --border: #e2e8f0;
+    --input: #e2e8f0;
+    --ring: #059669;
+    --chart-1: #059669;
+    --chart-2: #0284c7;
+    --chart-3: #d97706;
+    --chart-4: #0f766e;
+    --chart-5: #e11d48;
+    --radius: 0.625rem;
+    --sidebar: #064e3b;
+    --sidebar-foreground: #ecfdf5;
+    --sidebar-primary: #047857;
+    --sidebar-primary-foreground: #ffffff;
+    --sidebar-accent: #065f46;
+    --sidebar-accent-foreground: #ffffff;
+    --sidebar-border: #065f46;
+    --sidebar-ring: #34d399;
+}
+
+.dark {
+    --background: #0f172a;
+    --foreground: #f8fafc;
+    --card: #1e293b;
+    --card-foreground: #f8fafc;
+    --popover: #1e293b;
+    --popover-foreground: #f8fafc;
+    --primary: #10b981;
+    --primary-foreground: #06281f;
+    --secondary: #064e3b;
+    --secondary-foreground: #d1fae5;
+    --muted: #1e293b;
+    --muted-foreground: #94a3b8;
+    --accent: #064e3b;
+    --accent-foreground: #d1fae5;
+    --destructive: #fb7185;
+    --border: rgba(255, 255, 255, 10%);
+    --input: rgba(255, 255, 255, 15%);
+    --ring: #34d399;
+    --chart-1: #34d399;
+    --chart-2: #38bdf8;
+    --chart-3: #fbbf24;
+    --chart-4: #2dd4bf;
+    --chart-5: #fb7185;
+    --sidebar: #022c22;
+    --sidebar-foreground: #ecfdf5;
+    --sidebar-primary: #047857;
+    --sidebar-primary-foreground: #ffffff;
+    --sidebar-accent: #065f46;
+    --sidebar-accent-foreground: #ffffff;
+    --sidebar-border: rgba(255, 255, 255, 10%);
+    --sidebar-ring: #34d399;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+    }
+  body {
+    @apply bg-background text-foreground;
+    }
+  html {
+    @apply font-sans;
+    }
+  h1, h2, h3, h4 {
+    @apply font-heading;
+    }
+}
+
+/* Halaman masuk dengan transisi halus (guideline motion: fade + translateY 6px, 0.2s) */
+@keyframes page-in {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.page-in {
+    animation: page-in 0.2s ease-out both;
+}
+@media (prefers-reduced-motion: reduce) {
+    .page-in { animation: none; }
+}
+
+/* Cetak laporan: hanya area .print-area yang tampil, dengan kop surat */
+@media print {
+    body * { visibility: hidden; }
+    .print-area, .print-area * { visibility: visible; }
+    .print-area {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        box-shadow: none !important;
+        border: none !important;
+        background: #ffffff !important;
+    }
+    .no-print { display: none !important; }
+}

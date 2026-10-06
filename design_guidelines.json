@@ -1,0 +1,410 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "app_identity": {
+    "name": "SIMBARA SEKOLAH",
+    "full_title": "Sistem Informasi Manajemen Barang dan Persediaan Sekolah",
+    "archetype": "ORGANIC & EARTHY / INSTITUTIONAL MODERN (Trust, Structure, Clarity)",
+    "context": "Dashboard & School Inventory Administration System",
+    "target_users": "Operator/Pengurus Barang Sekolah & Administrator Sekolah di Indonesia",
+    "locale": "id-ID (Bahasa Indonesia, format Rupiah Rp, tanggal DD/MM/YYYY)"
+  },
+  "entry_surfaces": {
+    "/": "split hero / auth-gate — left institutional brand banner with badge & feature highlights, right card login form with demo role switcher",
+    "/login": "split login — left dark emerald positioning panel with Indonesian education motif & stats, right credential form + password toggle + demo accounts",
+    "/dashboard": "command center header + 8 KPI statistic cards + 4 interactive analytics charts + recent transactions audit table"
+  },
+  "colors": {
+    "surfaces": [
+      {
+        "name": "page",
+        "kind": "solid",
+        "bg": "#F8FAFC",
+        "on_bg": "#0F172A",
+        "on_bg_muted": "#475569",
+        "roles": {
+          "border": "#E2E8F0",
+          "link": "#047857",
+          "error": "#BE123C",
+          "success": "#047857",
+          "warning": "#B45309"
+        }
+      },
+      {
+        "name": "sidebar",
+        "kind": "solid",
+        "bg": "#064E3B",
+        "on_bg": "#ECFDF5",
+        "on_bg_muted": "#A7F3D0",
+        "roles": {
+          "border": "#065F46",
+          "active_bg": "#047857",
+          "active_text": "#FFFFFF",
+          "hover_bg": "#065F46",
+          "badge": "#059669"
+        }
+      },
+      {
+        "name": "panel",
+        "kind": "solid",
+        "bg": "#FFFFFF",
+        "on_bg": "#0F172A",
+        "on_bg_muted": "#64748B",
+        "roles": {
+          "border": "#E2E8F0",
+          "border_hover": "#CBD5E1",
+          "divider": "#F1F5F9"
+        }
+      },
+      {
+        "name": "stat_card_emerald",
+        "kind": "solid",
+        "bg": "#ECFDF5",
+        "on_bg": "#065F46",
+        "on_bg_muted": "#047857"
+      },
+      {
+        "name": "stat_card_blue",
+        "kind": "solid",
+        "bg": "#EFF6FF",
+        "on_bg": "#1E40AF",
+        "on_bg_muted": "#2563EB"
+      },
+      {
+        "name": "stat_card_amber",
+        "kind": "solid",
+        "bg": "#FFFBEB",
+        "on_bg": "#92400E",
+        "on_bg_muted": "#B45309"
+      },
+      {
+        "name": "stat_card_rose",
+        "kind": "solid",
+        "bg": "#FFF1F2",
+        "on_bg": "#9F1239",
+        "on_bg_muted": "#BE123C"
+      },
+      {
+        "name": "inverse",
+        "kind": "solid",
+        "bg": "#0F172A",
+        "on_bg": "#F8FAFC",
+        "on_bg_muted": "#94A3B8",
+        "roles": {
+          "link": "#34D399",
+          "error": "#FB7185",
+          "success": "#34D399"
+        }
+      },
+      {
+        "name": "hero",
+        "kind": "image",
+        "contrast_against": "#064E3B",
+        "guarantee": "scrim: linear-gradient(135deg, rgba(6, 78, 59, 0.95) 0%, rgba(15, 23, 42, 0.92) 100%)",
+        "on_bg": "#FFFFFF",
+        "on_bg_muted": "#D1FAE5",
+        "roles": {
+          "link": "#6EE7B7",
+          "error": "#FECDD3",
+          "success": "#A7F3D0"
+        }
+      },
+      {
+        "name": "header_glass",
+        "kind": "glass",
+        "contrast_against": "#FFFFFF",
+        "guarantee": "backdrop-blur-md bg-white/90 border-b border-slate-200 shadow-xs",
+        "on_bg": "#0F172A",
+        "on_bg_muted": "#475569"
+      }
+    ],
+    "accent": "#059669",
+    "on_accent": "#FFFFFF",
+    "brand": {
+      "primary": "#059669",
+      "primary_hover": "#047857",
+      "primary_active": "#064E3B",
+      "secondary": "#0284C7",
+      "accent_amber": "#D97706",
+      "accent_rose": "#E11D48"
+    }
+  },
+  "typography": {
+    "font_family_heading": "'Plus Jakarta Sans Variable', sans-serif",
+    "font_family_body": "'DM Sans Variable', sans-serif",
+    "font_family_mono": "'IBM Plex Mono', monospace",
+    "css_import_heading": "@import \"@fontsource-variable/plus-jakarta-sans\";",
+    "css_import_body": "@import \"@fontsource-variable/dm-sans\";",
+    "css_import_mono": "@import \"@fontsource/ibm-plex-mono\";",
+    "scale_px": {
+      "display": 56,
+      "h1": 40,
+      "h2": 30,
+      "h3": 22,
+      "h4": 18,
+      "body": 15,
+      "caption": 13,
+      "tag": 12
+    },
+    "rules": {
+      "headings": "font-bold tracking-tight text-slate-900 dark:text-slate-100",
+      "subheadings": "font-medium text-slate-600 dark:text-slate-400 leading-relaxed",
+      "body": "font-normal text-slate-700 dark:text-slate-300 leading-normal",
+      "monospace_tables": "font-mono text-xs tracking-tight",
+      "currency_numbers": "tabular-nums font-semibold tracking-tight"
+    }
+  },
+  "layout_and_navigation": {
+    "sidebar_structure": [
+      {
+        "group": "UTAMA",
+        "items": [
+          { "title": "Dashboard", "path": "/", "icon": "LayoutDashboard", "test_id": "nav-dashboard" }
+        ]
+      },
+      {
+        "group": "INVENTARIS & STOK",
+        "items": [
+          {
+            "title": "Data Barang",
+            "path": "/barang",
+            "icon": "Package",
+            "test_id": "nav-barang",
+            "subitems": [
+              { "title": "Semua Barang", "path": "/barang?tab=all" },
+              { "title": "Persediaan (Habis Pakai)", "path": "/barang?tab=persediaan" },
+              { "title": "Inventaris / Aset Tetap", "path": "/barang?tab=aset" }
+            ]
+          },
+          { "title": "Barang Masuk", "path": "/barang-masuk", "icon": "ArrowDownToLine", "test_id": "nav-barang-masuk" },
+          { "title": "Barang Keluar", "path": "/barang-keluar", "icon": "ArrowUpFromLine", "test_id": "nav-barang-keluar" },
+          { "title": "Kartu Stok", "path": "/kartu-stok", "icon": "ClipboardList", "test_id": "nav-kartu-stok" },
+          { "title": "Stok Opname", "path": "/stok-opname", "icon": "CheckSquare", "test_id": "nav-stok-opname" }
+        ]
+      },
+      {
+        "group": "DATA & LAPORAN",
+        "items": [
+          { "title": "Laporan (13 Jenis)", "path": "/laporan", "icon": "FileSpreadsheet", "test_id": "nav-laporan" },
+          { "title": "Import Excel", "path": "/import", "icon": "UploadCloud", "test_id": "nav-import" },
+          { "title": "Export Excel", "path": "/export", "icon": "DownloadCloud", "test_id": "nav-export" }
+        ]
+      },
+      {
+        "group": "PENGATURAN SEKOLAH",
+        "items": [
+          { "title": "Profil Sekolah (Kop)", "path": "/profil-sekolah", "icon": "Building2", "test_id": "nav-profil-sekolah" },
+          { "title": "Manajemen Pengguna", "path": "/pengguna", "icon": "Users", "test_id": "nav-pengguna", "role_required": "admin" },
+          { "title": "Riwayat Aktivitas", "path": "/riwayat", "icon": "History", "test_id": "nav-riwayat" },
+          { "title": "Pengaturan & Backup", "path": "/pengaturan", "icon": "Settings", "test_id": "nav-pengaturan" }
+        ]
+      }
+    ],
+    "header_controls": [
+      { "name": "School Name Badge", "desc": "Menampilkan nama sekolah aktif + NPSN dari setting" },
+      { "name": "Global Search (Ctrl+K)", "desc": "Quick lookup barang / transaksi" },
+      { "name": "Quick Action (+) Button", "desc": "Dropdown: Tambah Barang, Catat Masuk, Catat Keluar, Stok Opname" },
+      { "name": "Notification Bell", "desc": "Peringatan stok menipis (<= minimum) & stok habis (0)" },
+      { "name": "User Profile Menu", "desc": "Avatar, Nama, Role (Administrator/Pengurus), Switch Role Demo, Edit Profil, Logout" }
+    ]
+  },
+  "dashboard_spec": {
+    "kpi_cards": [
+      { "id": "total_jenis", "title": "Total Jenis Barang", "desc": "Semua SKU terdaftar", "color_theme": "emerald", "icon": "Boxes" },
+      { "id": "total_persediaan", "title": "Barang Persediaan", "desc": "ATK, kebersihan, konsumtif", "color_theme": "blue", "icon": "Layers" },
+      { "id": "total_aset", "title": "Barang Inventaris / Aset", "desc": "Meubelair, elektronik, aset", "color_theme": "indigo", "icon": "Laptop" },
+      { "id": "total_stok_unit", "title": "Total Unit Fisik", "desc": "Akumulasi seluruh stok", "color_theme": "teal", "icon": "PackageCheck" },
+      { "id": "masuk_bulan_ini", "title": "Barang Masuk (Bulan Ini)", "desc": "Pengadaan & penerimaan", "color_theme": "emerald", "icon": "TrendingUp" },
+      { "id": "keluar_bulan_ini", "title": "Barang Keluar (Bulan Ini)", "desc": "Distribusi & pemakaian", "color_theme": "amber", "icon": "TrendingDown" },
+      { "id": "stok_menipis", "title": "Stok Menipis", "desc": "≤ batas minimum (Perlu Restok)", "color_theme": "amber", "icon": "AlertTriangle" },
+      { "id": "stok_habis", "title": "Stok Habis (0)", "desc": "Barang kosong segera beli", "color_theme": "rose", "icon": "AlertCircle" }
+    ],
+    "charts": [
+      {
+        "id": "chart_tren_transaksi",
+        "title": "Tren Pengadaan vs Pengambilan (6 Bulan Terakhir)",
+        "type": "BarChart / AreaChart",
+        "library": "recharts",
+        "span": "col-span-12 lg:col-span-7",
+        "data_keys": ["masuk", "keluar"]
+      },
+      {
+        "id": "chart_kategori_donut",
+        "title": "Komposisi Stok per Kategori",
+        "type": "PieChart (Donut)",
+        "library": "recharts",
+        "span": "col-span-12 lg:col-span-5",
+        "data_keys": ["ATK", "Alat Kebersihan", "Meubelair", "Alat Elektronik", "Lainnya"]
+      },
+      {
+        "id": "chart_jenis_barang",
+        "title": "Perbandingan Persediaan vs Inventaris",
+        "type": "BarChart horizontal",
+        "library": "recharts",
+        "span": "col-span-12 lg:col-span-6"
+      },
+      {
+        "id": "chart_kondisi_aset",
+        "title": "Kondisi Barang & Aset Sekolah",
+        "type": "Radial / Pie",
+        "library": "recharts",
+        "span": "col-span-12 lg:col-span-6",
+        "categories": ["Baik (Hijau)", "Rusak Ringan (Kuning)", "Rusak Berat (Merah)"]
+      }
+    ],
+    "recent_transactions_table": {
+      "title": "Transaksi & Mutasi Barang Terbaru",
+      "columns": ["Tanggal", "No. Transaksi", "Jenis", "Nama Barang", "Kategori", "Jumlah & Satuan", "Penerima / Lokasi", "Petugas", "Aksi"]
+    }
+  },
+  "modules_and_functionalities": {
+    "master_barang": {
+      "fields": ["Kode Barang (Otomatis/Custom)", "Nama Barang", "Jenis (Persediaan / Inventaris-Aset)", "Kategori (ATK, Alat Kebersihan, Meubelair, Alat Elektronik, Olahraga, Laboratorium, Lainnya)", "Satuan (Pcs, Box, Rim, Unit, Set, Lembar, Botol, Pack, Roll, Buah)", "Tahun Perolehan", "Lokasi/Ruang (Ruang Guru, Lab Komputer, Perpustakaan, TU, Kelas 1-6, Gudang Utama)", "Kondisi (Baik, Rusak Ringan, Rusak Berat)", "Stok Minimum", "Stok Awal", "Stok Saat Ini (Otomatis)", "Harga Estimasi Satuan (Rp)", "Keterangan", "Foto Barang (opsional)"],
+      "features": ["CRUD + Detail Dialog", "Filter Kategori, Filter Jenis, Filter Kondisi, Filter Lokasi", "Pencarian Live Realtime", "Sorting kolom", "Pagination", "Bulk Delete / Selection", "Export Excel & Print Label/Barcode"]
+    },
+    "barang_masuk": {
+      "fields": ["Nomor Transaksi (Auto: BM-2026-XXXX)", "Tanggal Masuk", "Nama Barang / Pilih dari Master", "Kategori", "Jumlah Masuk", "Satuan", "Harga Satuan (Rp)", "Total Nilai (Rp) Otomatis = Jumlah × Harga", "Sumber Dana / Supplier (BOS Reguler, BOS Kinerja, Komite, Hibah)", "Lokasi Penyimpanan", "Kondisi", "Keterangan / Faktur", "Petugas / User"],
+      "logic": "Menambah stok master secara otomatis. Edit/Hapus menghitung ulang saldo histori dengan aman."
+    },
+    "barang_keluar": {
+      "fields": ["Nomor Transaksi (Auto: BK-2026-XXXX)", "Tanggal Keluar", "Nama Barang", "Kategori", "Jumlah Keluar", "Satuan", "Nama Penerima / Unit (Guru, Siswa, Kelas, Ruang)", "Keperluan", "Keterangan", "Petugas / User"],
+      "logic": "Mengurangi stok master otomatis. Validasi tegas: jika Jumlah > Stok Saat Ini, blokir submit dengan alert modal/toast 'Stok tidak mencukupi (Stok saat ini: X).'"
+    },
+    "kartu_stok": {
+      "features": [
+        "Dropdown Pilih Barang dengan info ringkas (Kategori, Satuan, Lokasi, Stok Akhir)",
+        "Filter Periode Tanggal (Bulan Ini, Semester Ini, Tahun Ini, Custom Range)",
+        "Tabel Running Saldo: [Tanggal | No. Transaksi | Dokumen/Sumber | Masuk | Keluar | Saldo Akhir | Petugas]",
+        "Ringkasan: Total Masuk Periode, Total Keluar Periode, Mutasi Bersih",
+        "Tombol Cetak Kartu Stok (Format Standar Kemendikbud/Sekolah dengan Kop)"
+      ]
+    },
+    "stok_opname": {
+      "fields": ["No. Opname (Auto: SO-2026-XXXX)", "Tanggal Opname", "Lokasi / Ruang", "Kategori", "Kode & Nama Barang", "Stok Sistem", "Stok Fisik", "Selisih (Stok Fisik - Stok Sistem)", "Status Selisih (Sesuai = 0, Kurang < 0, Lebih > 0)", "Penyebab / Keterangan", "Petugas Pemeriksa"],
+      "logic": "Input tidak langsung mengubah stok master. Terdapat tombol khusus 'Sesuaikan Stok Master' dengan modal konfirmasi password/otorisasi untuk mencatat adjustment."
+    },
+    "import_excel": {
+      "steps": [
+        "1. Unduh Template Excel (.xlsx / .csv) berisi contoh data dan panduan format",
+        "2. Upload file Excel dengan Drag & Drop",
+        "3. Preview tabel data dengan validasi baris otomatis (Highlight baris error / merah jika kolom wajib kosong / format salah)",
+        "4. Mode Penanganan Duplikat: (a) Tambah sebagai baru, (b) Update data yang ada, (c) Lewati data duplikat",
+        "5. Eksekusi Import dengan progress bar + Ringkasan: X Berhasil, Y Gagal/Dilewati"
+      ]
+    },
+    "export_excel": {
+      "features": [
+        "Export Excel (.xlsx) instan di seluruh tabel utama (Master Barang, Barang Masuk, Barang Keluar, Stok Opname, Kartu Stok, Audit Trail)",
+        "Dukungan Export format CSV dan Print Ready (HTML/PDF print)"
+      ]
+    },
+    "laporan_13_jenis": {
+      "list": [
+        { "no": 1, "id": "lap_persediaan_lengkap", "nama": "Laporan Rekapitulasi Seluruh Barang & Persediaan" },
+        { "no": 2, "id": "lap_persediaan_habispakai", "nama": "Laporan Posisi Stok Barang Persediaan (Habis Pakai)" },
+        { "no": 3, "id": "lap_inventaris_aset", "nama": "Laporan Buku Inventaris Aset Tetap Sekolah" },
+        { "no": 4, "id": "lap_masuk_periode", "nama": "Laporan Penerimaan / Barang Masuk per Periode" },
+        { "no": 5, "id": "lap_keluar_periode", "nama": "Laporan Pengeluaran / Distribusi Barang per Periode" },
+        { "no": 6, "id": "lap_mutasi_rekap", "nama": "Laporan Mutasi Barang (Awal + Masuk - Keluar = Akhir)" },
+        { "no": 7, "id": "lap_kartu_stok_barang", "nama": "Laporan Kartu Stok per Barang" },
+        { "no": 8, "id": "lap_stok_opname_hasil", "nama": "Laporan Berita Acara Hasil Stok Opname & Selisih" },
+        { "no": 9, "id": "lap_barang_stok_kritis", "nama": "Laporan Barang Stok Menipis & Kritis (Reorder)" },
+        { "no": 10, "id": "lap_kondisi_aset", "nama": "Laporan Kondisi Barang & Usulan Penghapusan (Rusak Berat)" },
+        { "no": 11, "id": "lap_distribusi_ruang", "nama": "Laporan Inventaris Barang per Ruangan / Lokasi (KIR)" },
+        { "no": 12, "id": "lap_nilai_aset_anggaran", "nama": "Laporan Nilai Valuasi Aset & Belanja per Sumber Dana" },
+        { "no": 13, "id": "lap_audit_aktivitas", "nama": "Laporan Riwayat Audit Aktivitas Pengguna" }
+      ],
+      "features": [
+        "Filter Fleksibel: Rentang Tanggal, Kategori, Ruangan, Jenis Barang, Status",
+        "Kop Surat Resmi Sekolah Otomatis dari Pengaturan Profil Sekolah",
+        "Tanda Tangan Kepala Sekolah (NIP) dan Pengurus Barang (NIP)",
+        "Aksi: Cetak Langsung (Print Dialog), Simpan PDF, Unduh Excel"
+      ]
+    },
+    "profil_sekolah_dan_pengguna": {
+      "profil_sekolah_fields": [
+        "Nama Sekolah (e.g., SMP NEGERI 1 TELADAN / SMA NEGERI 5)",
+        "NPSN (Nomor Pokok Sekolah Nasional)",
+        "Alamat Lengkap",
+        "Kelurahan / Desa",
+        "Kecamatan",
+        "Kota / Kabupaten",
+        "Provinsi",
+        "Kode Pos",
+        "Nomor Telepon / WhatsApp",
+        "Email Resmi Sekolah",
+        "Website",
+        "Nama Kepala Sekolah",
+        "NIP Kepala Sekolah",
+        "Nama Pengurus Barang / Operator",
+        "NIP Pengurus Barang",
+        "Logo Sekolah (Preview & Upload)"
+      ],
+      "manajemen_pengguna": [
+        "Daftar Akun Pengguna",
+        "Role: Administrator (Akses Penuh) & Pengurus Barang (Operasional)",
+        "Status: Aktif / Non-Aktif",
+        "Reset Password, Tambah Akun Baru, Edit Profil & Avatar"
+      ],
+      "riwayat_aktivitas": [
+        "Audit Trail lengkap: Waktu (ISO), Nama User, Role, Jenis Aksi (Tambah, Edit, Hapus, Sesuaikan Stok, Import, Export, Cetak), Deskripsi Detail, IP / Perangkat"
+      ]
+    }
+  },
+  "media": {
+    "image_urls": [
+      {
+        "category": "hero_and_auth_banner",
+        "url": "https://images.unsplash.com/photo-1613896527026-f195d5c818ed?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwxfHxzY2hvb2wlMjBidWlsZGluZyUyMGNhbXB1c3xlbnwwfHx8fDE3OTA2NDUyOTl8MA&ixlib=rb-4.1.0&q=85",
+        "description": "Gedung sekolah modern untuk latar belakang panel login dan banner branding",
+        "alt": "Gedung Sekolah Modern SIMBARA"
+      },
+      {
+        "category": "school_education_culture",
+        "url": "https://images.unsplash.com/photo-1625111380820-9a371d413cc4?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1ODR8MHwxfHNlYXJjaHwzfHxpbmRvbmVzaWFuJTIwdGVhY2hlciUyMGVkdWNhdGlvbnxlbnwwfHx8fDE3OTA2NDUyOTl8MA&ixlib=rb-4.1.0&q=85",
+        "description": "Guru dan siswa Indonesia berinteraksi dalam kegiatan pendidikan sekolah",
+        "alt": "Aktivitas Pengurus dan Guru Sekolah"
+      },
+      {
+        "category": "stationery_inventory_assets",
+        "url": "https://images.unsplash.com/photo-1654931800100-2ecf6eee7c64?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2Mzl8MHwxfHNlYXJjaHwxfHxzY2hvb2wlMjBzdXBwbGllcyUyMHN0YXRpb25lcnl8ZW58MHx8fHwxNzkwNjQ1Mjk5fDA&ixlib=rb-4.1.0&q=85",
+        "description": "Perlengkapan ATK dan peralatan persediaan sekolah",
+        "alt": "Perlengkapan ATK Sekolah"
+      },
+      {
+        "category": "school_campus_exterior",
+        "url": "https://images.unsplash.com/photo-1728206348193-9b5ae74a7d32?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxzY2hvb2wlMjBidWlsZGluZyUyMGNhbXB1c3xlbnwwfHx8fDE3OTA2NDUyOTl8MA&ixlib=rb-4.1.0&q=85",
+        "description": "Kampus sekolah dengan menara jam dan halaman hijau",
+        "alt": "Kampus Sekolah Terpadu"
+      }
+    ]
+  },
+  "visual_enhancers": {
+    "badges": "Pill shape, font-semibold, text-xs with semantic background (emerald-100/emerald-800 for Baik/Sesuai, amber-100/amber-800 for Rusak Ringan/Menipis, rose-100/rose-800 for Rusak Berat/Habis)",
+    "kpi_cards": "Crisp 1px border with border-slate-200/80, subtle hover -translate-y-0.5 transition, distinct top colored indicator strip (emerald, sky, amber, rose)",
+    "tables": "Sticky table header, zebra striping on demand, compact text-sm padding, action buttons grouped with tooltip and explicit data-testid",
+    "modals": "Dialog with max-w-2xl or max-w-4xl for forms, clear section separators, auto-calculated subtotal fields with highlight",
+    "print_kop": "Official Indonesian School Letterhead (KOP SURAT) with dual emblem logo, school name bold uppercase, complete NPSN, address, contact, and divider double-line (garis ganda tebal tipis)"
+  },
+  "motion": {
+    "page_transitions": "Fade in with opacity 0 to 1 and translateY 6px over 0.2s ease-out",
+    "dialogs": "Scale 0.98 to 1 with blur dissolve",
+    "buttons": "Active scale-98 transition for tactile feedback",
+    "respect_reduced_motion": "Wrap non-essential animations with prefers-reduced-motion media query"
+  },
+  "accessibility": {
+    "contrast_ratio": "All body and label texts exceed 4.5:1 against their respective card and page surfaces",
+    "keyboard_navigation": "Full tab index support on modals, data tables, and dropdowns",
+    "focus_rings": "focus:ring-2 focus:ring-emerald-600 focus:ring-offset-2",
+    "data_test_ids": "Enforced kebab-case role-based test IDs across all clickable, input, and stat elements"
+  },
+  "instructions_to_main_agent": [
+    "1. Greet the Indonesian school operator user with a professional, clean, highly functional UI (SIMBARA SEKOLAH).",
+    "2. All labels, menus, tooltips, validation messages, and reports must be in clear, natural Bahasa Indonesia.",
+    "3. Seed rich realistic mock/initial data covering: 2 roles (Admin: admin / admin123, Pengurus: pengurus / pengurus123), 20+ Master Barang (ATK, Meubelair, Elektronik, Kebersihan), 15+ Barang Masuk & Keluar, Realtime Kartu Stok, 5+ Stok Opname records, 13 Laporan yang siap cetak & export, Profil SMP Negeri 1 Teladan lengkap.",
+    "4. Ensure formulas run accurately: Stok Akhir = Stok Awal + Masuk - Keluar. Barang Masuk Total Harga = Jumlah x Harga Satuan. Barang Keluar validates against available stock. Stok Opname calculates Selisih = Fisik - Sistem.",
+    "5. For Excel import/export: use xlsx/csv export in frontend and openpyxl/pandas in backend; provide sample template download button for operators.",
+    "6. Printable reports must look like official government/school administrative documents with Kop Sekolah, NPSN, nomor laporan, and signature blocks (Mengetahui: Kepala Sekolah & Pengurus Barang).",
+    "7. Include demo quick-login buttons on the login screen ('Masuk sebagai Admin' & 'Masuk sebagai Pengurus Barang') for effortless testing and immediate evaluation.",
+    "8. Implement responsive mobile layout: drawer sidebar on small screens, scrollable data tables with sticky column headers."
+  ]
+}
