@@ -1,5 +1,5 @@
 from fastapi import APIRouter, Depends, HTTPException, status
-from models.user import LoginRequest, UserResponse
+
 
 router = APIRouter(tags=["authentication"])
 
@@ -11,6 +11,7 @@ MOCK_USERS = {
 
 @router.post("/login", response_model=UserResponse)
 async def login(data: LoginRequest):
+    from models.user import LoginRequest, UserResponse
     if data.username in MOCK_USERS:
         user = MOCK_USERS[data.username]
         if user["password"] == data.password:
