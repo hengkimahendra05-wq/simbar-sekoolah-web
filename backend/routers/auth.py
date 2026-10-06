@@ -1,9 +1,8 @@
 from fastapi import APIRouter, Depends, HTTPException, status
-
+from backend.models.user import LoginRequest, UserResponse  # Jalur mutlak folder utama
 
 router = APIRouter(tags=["authentication"])
 
-# Basis data lokal instan untuk mengamankan login admin
 MOCK_USERS = {
     "admin": {"username": "admin", "password": "admin123", "role": "administrator", "name": "Kepala Admin"},
     "pengurus": {"username": "pengurus", "password": "pengurus123", "role": "pengurus", "name": "Budi Santoso, S.Pd."}
@@ -11,11 +10,9 @@ MOCK_USERS = {
 
 @router.post("/login", response_model=UserResponse)
 async def login(data: LoginRequest):
-    from models.user import LoginRequest, UserResponse
     if data.username in MOCK_USERS:
         user = MOCK_USERS[data.username]
         if user["password"] == data.password:
-            # Membuat token simulasi aman menggunakan teks murni bawaan Python (Tanpa butuh PyJWT / Jose)
             simulated_token = f"simulated_token_for_{user['username']}_role_{user['role']}"
             return {
                 "token": simulated_token,
