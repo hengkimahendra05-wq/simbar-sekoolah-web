@@ -1,5 +1,5 @@
 from fastapi import APIRouter, Depends, HTTPException, status
-from backend.models.user import LoginRequest, UserResponse  # Jalur mutlak folder utama
+from models.user import LoginRequest, UserResponse
 
 router = APIRouter(tags=["authentication"])
 
