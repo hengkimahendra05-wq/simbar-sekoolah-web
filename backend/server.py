@@ -14,7 +14,7 @@ from starlette.middleware.cors import CORSMiddleware
 
 from routers import (
     audit,
-    auth,
+
     dashboard,
     exporter,
     importer,
@@ -27,6 +27,8 @@ from routers import (
     transactions,
     users,
 )
+import auth
+
 
 ROOT_DIR = Path(__file__).parent
 load_dotenv(ROOT_DIR / ".env")
