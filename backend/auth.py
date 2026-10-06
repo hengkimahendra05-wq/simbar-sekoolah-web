@@ -1,8 +1,21 @@
 from fastapi import APIRouter, Depends, HTTPException, status
-from models.user import LoginRequest, UserResponse
+from pydantic import BaseModel
 
 router = APIRouter(tags=["authentication"])
 
+# Menuliskan model langsung di sini agar tidak memicu ModuleNotFoundError
+class LoginRequest(BaseModel):
+    username: str
+    password: str
+
+class UserResponse(BaseModel):
+    token: str
+    token_type: str
+    username: str
+    role: str
+    name: str
+
+# Basis data simulasi lokal untuk memotong kebuntuan database
 MOCK_USERS = {
     "admin": {"username": "admin", "password": "admin123", "role": "administrator", "name": "Kepala Admin"},
     "pengurus": {"username": "pengurus", "password": "pengurus123", "role": "pengurus", "name": "Budi Santoso, S.Pd."}
