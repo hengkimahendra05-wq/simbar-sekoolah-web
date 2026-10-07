@@ -1,12 +1,12 @@
 {
   "rewrites": [
     {
-      "source": "/api/auth/:path*",
-      "destination": "https://railway.app*"
+      "source": "/api/auth/login",
+      "destination": "https://railway.app"
     },
     {
-      "source": "/api/:path*",
-      "destination": "https://railway.app*"
+      "source": "/api/(.*)",
+      "destination": "https://railway.app"
     },
     {
       "source": "/(.*)",
