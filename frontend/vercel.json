@@ -1,16 +1,8 @@
 {
   "rewrites": [
     {
-      "source": "/api/auth/login",
-      "destination": "https://railway.app"
-    },
-    {
-      "source": "/api/(.*)",
-      "destination": "https://railway.app"
-    },
-    {
-      "source": "/(.*)",
-      "destination": "/index.html"
+      "source": "/api/:path*",
+      "destination": "https://PASTE-DOMAIN-ASLI-RAILWAY-ANDA-DI-SINI/:path*"
     }
   ]
 }
