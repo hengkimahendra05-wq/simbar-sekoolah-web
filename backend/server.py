@@ -1,6 +1,14 @@
 import subprocess
 import sys
 try:
+    import motor
+except ImportError:
+    subprocess.check_call([sys.executable, "-m", "ensurepip"])
+    subprocess.check_call([sys.executable, "-m", "pip", "install", "motor", "pymongo"])
+
+import subprocess
+import sys
+try:
     import dotenv
 except ImportError:
     subprocess.check_call([sys.executable, "-m", "pip", "install", "python-dotenv"])
