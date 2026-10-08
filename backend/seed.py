@@ -1,3 +1,9 @@
+import subprocess
+import sys
+try:
+    import dotenv
+except ImportError:
+    subprocess.check_call([sys.executable, "-m", "pip", "install", "python-dotenv"])
 """Seed data contoh SIMBARA SEKOLAH. Jalankan: cd /app/backend && python seed.py
 Gunakan FORCE_SEED=1 untuk mengganti semua data (drop + seed ulang).
 """
