@@ -34,3 +34,4 @@ fastapi
 uvicorn
 pydantic
 setuptools
+python-dotenv
