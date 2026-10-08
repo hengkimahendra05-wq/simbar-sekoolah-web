@@ -1,3 +1,10 @@
+import subprocess
+import sys
+try:
+    import dotenv
+except ImportError:
+    subprocess.check_call([sys.executable, "-m", "pip", "install", "python-dotenv"])
+
 import asyncio
 import logging
 import os
