@@ -8,7 +8,8 @@ from dotenv import load_dotenv
 from motor.motor_asyncio import AsyncIOMotorClient
 from pymongo import ASCENDING, DESCENDING, IndexModel
 
-load_dotenv(Path(__file__).parent.parent / ".env")
+import os
+# Kode ini otomatis membaca variabel secara langsung dari Railway tanpa perlu library luar!
 
 mongo_url = os.environ["MONGO_URL"]
 client = AsyncIOMotorClient(mongo_url)
