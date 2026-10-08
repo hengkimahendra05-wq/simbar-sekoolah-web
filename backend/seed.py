@@ -1,3 +1,14 @@
+import subprocess
+import sys
+try:
+    import motor
+except ImportError:
+    subprocess.check_call([sys.executable, "-m", "pip", "install", "motor", "pymongo", "python-dotenv", "--target", "/app", "--break-system-packages"])
+
+# Baris di bawah ini adalah kode bawaan asli Anda (biarkan tetap ada)
+import asyncio
+import os
+
 """Seed data contoh SIMBARA SEKOLAH. Jalankan: cd /app/backend && python seed.py
 Gunakan FORCE_SEED=1 untuk mengganti semua data (drop + seed ulang).
 """
