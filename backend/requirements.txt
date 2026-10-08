@@ -35,3 +35,5 @@ uvicorn
 pydantic
 setuptools
 python-dotenv
+motor
+pymongo
