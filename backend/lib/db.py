@@ -4,7 +4,6 @@ import logging
 import os
 from pathlib import Path
 
-from dotenv import load_dotenv
 from motor.motor_asyncio import AsyncIOMotorClient
 from pymongo import ASCENDING, DESCENDING, IndexModel
 
